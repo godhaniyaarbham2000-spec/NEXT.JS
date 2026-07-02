@@ -14,7 +14,7 @@ const ProductList = () => {
 
   return (
     <>
-      <h1>Client: <u>{category}</u> pages: <u>{pages}</u> </h1>
+      <h1>Client: <u>{category}</u> pages: <u>{pages.join(",")}</u> </h1>
     </>
   );
 };

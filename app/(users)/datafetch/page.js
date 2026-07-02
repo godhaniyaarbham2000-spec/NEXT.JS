@@ -6,7 +6,7 @@ const DataFetch = async () => {
 
   try {
     // Database se 'users' table ka saara data select karna
-    const [rows] = await db.query("SELECT * FROM products");
+    const [rows] = await db.query("SELECT * FROM students");
     usersList = rows;
   } catch (error) {
     console.error("Database connection error:", error);
@@ -23,19 +23,19 @@ const DataFetch = async () => {
         <table style={{ width: "100%", borderCollapse: "collapse", boxShadow: "0 4px 6px rgba(0,0,0,0.1)" }}>
           <thead>
             <tr style={{ backgroundColor: "#2563eb", color: "white", textAlign: "left" }}>
-              <th style={{ padding: "12px", border: "1px solid #ddd" }}>ID</th>
-              <th style={{ padding: "12px", border: "1px solid #ddd" }}>Product Name</th>
-              <th style={{ padding: "12px", border: "1px solid #ddd" }}>Price</th>
-                  <th style={{ padding: "12px", border: "1px solid #ddd" }}>Stock</th>
+              <th style={{ padding: "12px", border: "1px solid #ddd" }}>Name</th>
+              <th style={{ padding: "12px", border: "1px solid #ddd" }}>Email</th>
+              <th style={{ padding: "12px", border: "1px solid #ddd" }}>Course</th>
+                  <th style={{ padding: "12px", border: "1px solid #ddd" }}>Age</th>
             </tr>
           </thead>
           <tbody>
             {usersList.map((user) => (
               <tr key={user.id} style={{ borderBottom: "1px solid #ddd" }}>
-                <td style={{ padding: "12px", border: "1px solid #ddd" }}>{user.id}</td>
-                <td style={{ padding: "12px", border: "1px solid #ddd" }}>{user.product_name}</td>
-                <td style={{ padding: "12px", border: "1px solid #ddd" }}>{user.price}</td>
-                       <td style={{ padding: "12px", border: "1px solid #ddd" }}>{user.stock}</td>
+                <td style={{ padding: "12px", border: "1px solid #ddd" }}>{user.name}</td>
+                <td style={{ padding: "12px", border: "1px solid #ddd" }}>{user.email}</td>
+                <td style={{ padding: "12px", border: "1px solid #ddd" }}>{user.course}</td>
+                       <td style={{ padding: "12px", border: "1px solid #ddd" }}>{user.age}</td>
               </tr>
             ))}
           </tbody>

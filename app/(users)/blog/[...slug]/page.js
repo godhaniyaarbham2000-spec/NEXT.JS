@@ -5,6 +5,7 @@ console.log(slug);
 return (
     <>
         <h1 className="m-5">Dynamic Nested Routing Slug</h1>
+        
     </>
 )
 
