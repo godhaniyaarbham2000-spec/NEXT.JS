@@ -38,6 +38,10 @@ const Contact = () => {
         body: JSON.stringify({ name: dummyNameInput }) 
       });
       const data = await response.json();
+      
+      // Browser ke "Inspect -> Console" tab me data dikhane ke liye
+      console.log("Browser Console - Dummy API Response:", data);
+      
       setDummyPostResponse(data.message);
       setDummyNameInput("");
     } catch (error) {
