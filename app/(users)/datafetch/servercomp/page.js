@@ -17,7 +17,7 @@ const UserDataCard = async ({ userName }) => {
         <p className="text-gray-700 font-medium">{userData.error}</p>
         <p className="text-sm text-gray-500 mt-4">
           Genderize API daily limit reached. Please try again later.
-        </p>
+        </p>  
       </div>
     );
   }

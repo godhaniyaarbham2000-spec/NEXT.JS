@@ -1,8 +1,3 @@
-import "../globals.css";
-import Navigation from "../../components/navigation";
-import {Roboto} from "next/font/google";
-
-
 export const metadata = {
   title: {
     default: "Arbham Godhaniya | Learn Web Development",
@@ -40,19 +35,12 @@ export const metadata = {
 };
 
 
-  const roboto = Roboto ({
-    subsets: ["latin"],
-  });
-
-
-export default function Rootyout ({children}){
-  return(
-    <div className={roboto.className}>
-
-      <Navigation />
-            <h1 className="m-6">Hello Layout</h1>
-      {children}
-    </div>
-  )
+export default function RootLayout({ children }) {
+  return (
+    <html lang="en">
+      <body>
+        {children}
+      </body>
+    </html>
+  );
 }
-

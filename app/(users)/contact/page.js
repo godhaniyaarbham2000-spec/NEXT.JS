@@ -9,6 +9,7 @@ const Contact = () => {
   // GET Request wala function (Pehle wala)
   useEffect(() => {
     const fetchData = async () => {
+      
       try {
         const response = await fetch('/api');
         const data = await response.json();
@@ -31,7 +32,7 @@ const Contact = () => {
         // Yaha par hum Backend ko bata rahe hain ki data Contact page se aa raha hai
         body: JSON.stringify({ name: nameInput, source: 'Contact Page' }) 
       });
-      
+    
       const data = await response.json();
       setPostResponse(data.message); // Backend se aaya hua reply screen par dikhane ke liye
       setNameInput(""); // Input khali karne ke liye
