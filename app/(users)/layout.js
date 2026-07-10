@@ -42,8 +42,7 @@ export const metadata = {
 
   const roboto = Roboto ({
     subsets: ["latin"],
-  });
-
+  }); // Font setup for layout shift prevention
 
 export default function Rootyout ({children}){
   return(

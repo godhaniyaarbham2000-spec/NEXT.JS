@@ -31,17 +31,19 @@ export const metadata = {
     card: "summary_large_image",
     title: "WEB Technical",
     description: "Learn Web Dev from scratch with Thapa Technical!",
-    creator: "@arbhamgoghaniya",
+    creator: "@arbhamgodhaniya",
     images: ["/og-image.png"],
   },
 };
 
 import Navbar from "./components/Navbar";
+import { WebVitals } from "./components/WebVitals"; // 1-line change for source control
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
+        <WebVitals />
         <Navbar />
         {children}
       </body>
