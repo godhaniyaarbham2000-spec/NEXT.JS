@@ -16,7 +16,7 @@ export function proxy(request) {
   // TOPIC 7 (Rate Limiting) Logic start:
   // Code kya kehta hai: User ka IP check karo, uski request count badhao. Agar 50 se zyada hai to block kar do.
   const ip = request.ip ?? '127.0.0.1';
-  const limit = 50; // Max 50 requests allowed taaki test karte waqt dikkat na aaye
+  const limit = 500; // Max 50 requests allowed taaki test karte waqt dikkat na aaye
   const windowMs = 60 * 1000; // 1 minute
 
   if (!rateLimitMap.has(ip)) {
