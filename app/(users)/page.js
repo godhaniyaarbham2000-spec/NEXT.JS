@@ -1,4 +1,36 @@
 import Link from 'next/link';
+import { projectStructure } from '../projectStructureData';
+
+const FolderIcon = () => <svg className="w-5 h-5 text-indigo-500 mr-2 inline" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z" /></svg>;
+const FileIcon = () => <svg className="w-4 h-4 text-slate-400 mr-2 inline" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" /></svg>;
+
+const RecursiveTree = ({ node }) => (
+  <div className="font-mono text-sm mt-2">
+    <div className="flex items-center mb-1">
+      <FolderIcon />
+      <span className="font-bold text-slate-800 text-base">{node.folder}</span>
+      <span className="ml-4 text-xs font-semibold text-red-500 uppercase tracking-wide bg-red-50 px-2 py-1 rounded">
+        {node.topic}
+      </span>
+    </div>
+    
+    <div className="pl-6 border-l-2 border-indigo-100 ml-2 space-y-1 mt-1">
+      {node.files.map((file, fIdx) => (
+        <div key={fIdx} className="flex items-center py-1 group">
+          <FileIcon />
+          <span className="text-slate-700 max-w-sm truncate mr-4">{file.name}</span>
+          <span className="text-[10px] text-red-500 opacity-70 group-hover:opacity-100 transition-opacity">
+            — {file.topic}
+          </span>
+        </div>
+      ))}
+
+      {node.subfolders.map((sub, subIdx) => (
+        <RecursiveTree key={subIdx} node={sub} />
+      ))}
+    </div>
+  </div>
+);
 
 export default function Home() {
   const routes = [
@@ -129,6 +161,24 @@ export default function Home() {
           ))}
         </div>
         
+        {/* Project Structure Section */}
+        <div className="mt-20">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl font-bold text-slate-800 tracking-tight">
+              Full Project File Structure
+            </h2>
+            <p className="text-slate-500 mt-2">
+              Every single file in the project mapped to its related lecture topic.
+            </p>
+          </div>
+
+          <div className="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden p-6 max-w-4xl mx-auto">
+            {projectStructure.map((root, rootIdx) => (
+              <RecursiveTree key={rootIdx} node={root} />
+            ))}
+          </div>
+        </div>
+
         <div className="mt-16 text-center">
           <p className="text-sm text-slate-400 font-medium">
             Next.js App Router Architecture
