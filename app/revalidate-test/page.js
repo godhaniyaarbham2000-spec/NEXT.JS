@@ -15,8 +15,6 @@ export default async function RevalidateTest() {
   const data = await res.json();
 
   return (
-    <html>
-    <body>
     <div style={{ padding: '2rem', fontFamily: 'sans-serif' }}>
       <h1>Next.js Revalidate (ISR) Demo ⏱️</h1>
       <p style={{ fontSize: '1.2rem' }}>
@@ -30,7 +28,5 @@ export default async function RevalidateTest() {
       
       
     </div>
-    </body>
-</html>
   );
 }
