@@ -3,48 +3,70 @@ import Link from 'next/link';
 export default function Home() {
   const routes = [
     {
-      category: "Core Pages",
+      category: "1. Core & Public Pages",
       links: [
-        { path: "/about", name: "About Us", desc: "Learn more about our company and team." },
-        { path: "/contact", name: "Contact", desc: "Get in touch with us." },
-        { path: "/service", name: "Services", desc: "Explore the services we offer." },
-        { path: "/company", name: "Company", desc: "Detailed company information." },
+        { path: "/about", name: "About Us", desc: "Main about page." },
+        { path: "/about/teams", name: "About Teams", desc: "Nested teams page under about." },
+        { path: "/contact", name: "Contact", desc: "Contact information." },
+        { path: "/service", name: "Services", desc: "Services offered." },
+        { path: "/company", name: "Company", desc: "Detailed company info." },
       ]
     },
     {
-      category: "Next.js Features Demo",
+      category: "2. Dashboard & Settings (App Group)",
       links: [
-        { path: "/clientcomp", name: "Client Components", desc: "Demonstration of React client-side rendering." },
-        { path: "/servercomp", name: "Server Components", desc: "Demonstration of React server-side rendering." },
-        { path: "/datafetch", name: "Data Fetching (DB)", desc: "Database fetching methods in Next.js." },
-        { path: "/datafetch/clientcomp?name=arbham", name: "Client Data Fetch", desc: "Client data fetching with searchParams." },
-        { path: "/datafetch/servercomp?name=arbham", name: "Server Data Fetch", desc: "Server data fetching with searchParams." },
-        { path: "/caching-demo", name: "Caching Demo", desc: "Explore Next.js caching layers and strategies." },
-        { path: "/server-action-demo", name: "Server Actions", desc: "Form mutations using Next.js server actions." },
+        { path: "/dashboard", name: "Dashboard", desc: "Main dashboard (Parallel routes @analytics & @team)." },
+        { path: "/dashboard/settings", name: "Settings", desc: "Dashboard settings main page." },
+        { path: "/dashboard/settings/billing", name: "Billing Settings", desc: "Nested billing page." },
+        { path: "/dashboard/settings/team", name: "Team Settings", desc: "Nested team settings page." },
+      ]
+    },
+    {
+      category: "3. Data Fetching & Rendering",
+      links: [
+        { path: "/clientcomp", name: "Client Components", desc: "React client-side rendering." },
+        { path: "/servercomp", name: "Server Components", desc: "React server-side rendering." },
+        { path: "/datafetch", name: "Data Fetching (DB)", desc: "Direct database fetch." },
+        { path: "/datafetch/clientcomp?name=arbham", name: "Client Data Fetch", desc: "Client-side data fetching with searchParams." },
+        { path: "/datafetch/servercomp?name=arbham", name: "Server Data Fetch", desc: "Server-side data fetching with searchParams." },
+      ]
+    },
+    {
+      category: "4. Caching & Next.js Advanced Features",
+      links: [
+        { path: "/caching-demo", name: "Caching Demo Home", desc: "Main caching strategies page." },
+        { path: "/caching-demo/client-fetch", name: "Client Fetch Cache", desc: "Caching via client." },
+        { path: "/caching-demo/data-cache", name: "Data Cache", desc: "Next.js Data cache API." },
+        { path: "/caching-demo/on-demand", name: "On-Demand Revalidate", desc: "On-demand revalidation." },
+        { path: "/caching-demo/streaming", name: "Streaming", desc: "React Suspense & streaming." },
+        { path: "/server-action-demo", name: "Server Actions", desc: "Form mutations via Server Actions." },
         { path: "/revalidate-test", name: "Revalidation (ISR)", desc: "Testing Incremental Static Regeneration." },
-        { path: "/error-test", name: "Error Boundaries", desc: "Testing Next.js error.js behavior." },
-        { path: "/loading-test", name: "Loading UI", desc: "Testing Next.js loading.js behavior." },
+        { path: "/error-test", name: "Error Boundaries", desc: "Testing error.js UI." },
+        { path: "/loading-test", name: "Loading UI", desc: "Testing loading.js UI." },
       ]
     },
     {
-      category: "Content & Data",
+      category: "5. Content, Dynamic Routes & Media",
       links: [
-        { path: "/blog/22", name: "Dynamic Blog", desc: "Read our dynamic blog post (ID: 22)." },
-        { path: "/products", name: "Products", desc: "Browse our product catalog." },
-        { path: "/users", name: "Users Directory", desc: "List of users in the system." },
-        { path: "/photos", name: "Photo Gallery", desc: "A gallery of images and photos." },
+        { path: "/products", name: "Products", desc: "Static products catalog." },
+        { path: "/blog/22", name: "Blog Post (Dynamic ID)", desc: "Dynamic route [id]." },
+        { path: "/blog/tech/2026/01", name: "Blog Catch-all", desc: "Catch-all route [...slug]." },
+        { path: "/users/arbham", name: "User Profile (Dynamic)", desc: "Dynamic route [username]." },
+        { path: "/users/arbham/posts/101", name: "User Posts (Nested Dynamic)", desc: "Nested dynamic routes [username] and [postId]." },
+        { path: "/photos", name: "Photo Gallery", desc: "Main photo gallery." },
+        { path: "/photos/123", name: "Single Photo (Intercepting)", desc: "Photo view demonstrating intercepting route (.)[id]." },
       ]
     },
     {
-      category: "Admin & Auth",
+      category: "6. Admin, Auth & Security",
       links: [
-        { path: "/dashboard", name: "Dashboard", desc: "Main application dashboard." },
-        { path: "/login", name: "Login", desc: "User authentication page." },
-        { path: "/user-panel", name: "User Panel", desc: "Manage your user account." },
-        { path: "/admin", name: "Admin Area", desc: "Restricted administration area." },
-        { path: "/add-author", name: "Add Author", desc: "Form to add a new author." },
-        { path: "/add-post", name: "Add Post", desc: "Form to create a new blog post." },
-        { path: "/security-demo", name: "Security", desc: "Security and middleware demonstration." },
+        { path: "/login", name: "Login", desc: "Authentication login page." },
+        { path: "/user-panel", name: "User Panel", desc: "Dashboard for standard users." },
+        { path: "/admin", name: "Admin Dashboard", desc: "Restricted admin area." },
+        { path: "/admin/about", name: "Admin About", desc: "Nested admin about page." },
+        { path: "/add-author", name: "Add Author", desc: "Form to add authors." },
+        { path: "/add-post", name: "Add Post", desc: "Form to add posts." },
+        { path: "/security-demo", name: "Security Demo", desc: "Security implementations demo." },
       ]
     }
   ];
@@ -54,10 +76,10 @@ export default function Home() {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h1 className="text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600 mb-4 tracking-tight">
-            Project Directory
+            Complete Project Directory
           </h1>
           <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-            Welcome to the centralized index of all the pages and demonstrations built in this Next.js project. Use this directory to easily navigate through the application after deployment.
+            An exhaustive index of every single route, page, and feature built in this Next.js App Router project.
           </p>
         </div>
 
@@ -71,23 +93,24 @@ export default function Home() {
                 </h2>
               </div>
               <div className="p-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                   {section.links.map((link, linkIdx) => (
                     <Link href={link.path} key={linkIdx} className="group block h-full">
-                      <div className="h-full p-5 rounded-xl border border-slate-200 bg-white transition-all duration-300 hover:shadow-md hover:border-indigo-200 hover:-translate-y-1">
-                        <div className="flex justify-between items-start mb-2">
-                          <h3 className="text-lg font-semibold text-slate-900 group-hover:text-indigo-600 transition-colors">
-                            {link.name}
-                          </h3>
-                          <svg className="w-5 h-5 text-slate-400 group-hover:text-indigo-500 transform group-hover:translate-x-1 transition-all" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                          </svg>
+                      <div className="h-full p-4 rounded-xl border border-slate-200 bg-white transition-all duration-300 hover:shadow-md hover:border-indigo-200 hover:-translate-y-1 flex flex-col justify-between">
+                        <div>
+                          <div className="flex justify-between items-start mb-2">
+                            <h3 className="text-md font-semibold text-slate-900 group-hover:text-indigo-600 transition-colors leading-tight">
+                              {link.name}
+                            </h3>
+                          </div>
+                          <p className="text-xs text-slate-500 mb-3">
+                            {link.desc}
+                          </p>
                         </div>
-                        <p className="text-sm text-slate-500 leading-relaxed">
-                          {link.desc}
-                        </p>
-                        <div className="mt-4 flex items-center text-xs font-medium text-indigo-500 bg-indigo-50 inline-block px-2 py-1 rounded">
-                          {link.path}
+                        <div className="mt-auto">
+                          <span className="inline-block px-2 py-1 text-[11px] font-mono font-medium text-indigo-600 bg-indigo-50 rounded-md break-all">
+                            {link.path}
+                          </span>
                         </div>
                       </div>
                     </Link>
@@ -99,8 +122,8 @@ export default function Home() {
         </div>
         
         <div className="mt-16 text-center">
-          <p className="text-sm text-slate-400">
-            Deployed with Next.js App Router
+          <p className="text-sm text-slate-400 font-medium">
+            Next.js App Router Architecture
           </p>
         </div>
       </div>
