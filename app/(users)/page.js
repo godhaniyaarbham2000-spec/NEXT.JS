@@ -29,7 +29,7 @@ export default function Home() {
     {
       category: "Content & Data",
       links: [
-        { path: "/blog", name: "Blog", desc: "Read our latest articles and posts." },
+        { path: "/blog/22", name: "Dynamic Blog", desc: "Read our dynamic blog post (ID: 22)." },
         { path: "/products", name: "Products", desc: "Browse our product catalog." },
         { path: "/users", name: "Users Directory", desc: "List of users in the system." },
         { path: "/photos", name: "Photo Gallery", desc: "A gallery of images and photos." },
