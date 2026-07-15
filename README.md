@@ -15,6 +15,8 @@ It covers everything from advanced routing concepts, Server Components, and Cach
 - 🔄 **Advanced Routing**: Route Groups, Parallel Routes, and Intercepting Routes (Modals).
 - 📝 **Server Actions**: Secure form handling and CRUD operations without traditional API routes.
 - 🚀 **Next.js Caching**: Implementation of Data Cache, Full Route Cache, and ISR.
+- 📊 **Web Vitals Monitoring**: Built-in tracking for core performance metrics (LCP, FCP, CLS, TTFB).
+- 🔒 **Advanced Security**: Configured Strict-Transport-Security, X-Frame-Options, and Content-Security-Policy headers.
 - 🎨 **Modern UI**: Clean and responsive styling with Tailwind CSS.
 
 ---
@@ -47,6 +49,8 @@ It covers everything from advanced routing concepts, Server Components, and Cach
 - Prisma ORM Data Modeling
 - Next.js Caching & Revalidation Strategies
 - Middleware for Route Protection
+- Performance Monitoring (`next/web-vitals`)
+- Security Headers & Next.js config optimization
 
 ---
 

@@ -9,7 +9,14 @@ const nextConfig = {
   /* config options here */
   reactCompiler: true,
   devIndicators: false,
+  compress: true, // Enable gzip/brotli compression for all routes globally
+  reactStrictMode: true, // Recommended for identifying performance bottlenecks
+  experimental: {
+    optimizePackageImports: ['@heroicons/react', 'lucide-react'], // Optimize heavy icon libraries
+    scrollRestoration: true, // Better UX on back navigation
+  },
   images: {
+    formats: ['image/avif', 'image/webp'], // Global Image optimization (loads images much faster)
     remotePatterns: [
       {
         protocol: 'https',

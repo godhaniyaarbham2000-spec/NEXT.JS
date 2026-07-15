@@ -30,6 +30,7 @@ const Service = () => {
                 height={500} 
                 alt="thapa" 
                 className="w-full h-full rounded-full" 
+                priority={true}
               />
             </div>
             <h3 className="text-lg font-semibold text-center text-gray-800">
@@ -48,12 +49,11 @@ const Service = () => {
             <div className="w-full h-full relative bg-orange-200 rounded-full mx-auto mb-4 flex items-center justify-center">
              <Image 
               src={thapa}
-           
               alt="thapa"
               fill={true}
               sizes="(max-width: 768px) 100vw, 33vw"
-               quality={75}
-               priority={false}
+              quality={75}
+              priority={true}
               placeholder="blur"
              />
             </div>
