@@ -96,8 +96,8 @@ export default function Home() {
         { path: "/user-panel", name: "User Panel", desc: "Dashboard for standard users.", topic: "Day 07: Auth & RBAC (User Role)" },
         { path: "/admin", name: "Admin Dashboard", desc: "Restricted admin area.", topic: "Day 07: Auth & RBAC (Admin Role)" },
         { path: "/admin/about", name: "Admin About", desc: "Nested admin about page.", topic: "Day 01–02: Nested Routing" },
-        { path: "/add-author", name: "Add Author", desc: "Form to add authors.", topic: "Day 05: Server Actions CRUD" },
-        { path: "/add-post", name: "Add Post", desc: "Form to add posts.", topic: "Day 05: Server Actions CRUD" },
+        { path: "/add-author", name: "Add Author", desc: "Form to add authors.", topic: "Day 05: Server Actions CRUD & MongoDB" },
+        { path: "/add-post", name: "Add Post", desc: "Form to add posts.", topic: "Day 05: Server Actions CRUD & MongoDB" },
         { path: "/security-demo", name: "Security Demo", desc: "Security implementations demo.", topic: "Day 09: Middleware & Security" },
       ]
     }
