@@ -20,49 +20,56 @@ export default function SecurityDemoPage() {
   const maliciousUserInput = "<img src='x' onerror='alert(\"XSS Attack! Hacker ne script chala di!\")' />";
   
   return (
-    <div style={{ padding: '20px', fontFamily: 'sans-serif' }}>
-      <h1>Security Demo</h1>
+    <div className="p-5 md:p-8 font-sans max-w-5xl mx-auto">
+      <h1 className="text-3xl md:text-4xl font-bold text-slate-800 mb-6">Security Demo</h1>
 
-      <hr />
+      <hr className="my-6 border-gray-200" />
 
       {/* TOPIC 5: XSS Section */}
-      <h2>TOPIC 5: XSS (Cross-Site Scripting)</h2>
-      <p>
+      <h2 className="text-2xl font-bold text-slate-800 mb-4">TOPIC 5: XSS (Cross-Site Scripting)</h2>
+      <p className="mb-6 text-gray-700">
         <strong>Code kya kehta hai:</strong> Niche do tarike dikhaye hain data render karne ke. Ek Safe aur dusra Dangerous.
       </p>
       
-      <div style={{ display: 'flex', gap: '20px' }}>
-        <div style={{ border: '2px solid green', padding: '10px', width: '50%' }}>
-          <h3>Safe Approach (React Default)</h3>
-          <p>React string ko escape kar deta hai, isliye script run nahi hoti, bas text dikhta hai.</p>
-          <div><strong>Output:</strong><br />{maliciousUserInput}</div>
+      <div className="flex flex-col md:flex-row gap-5 mb-8">
+        <div className="border-2 border-green-500 rounded-lg p-5 w-full md:w-1/2 bg-green-50">
+          <h3 className="text-xl font-bold text-green-700 mb-2">Safe Approach (React Default)</h3>
+          <p className="text-sm text-green-800 mb-4">React string ko escape kar deta hai, isliye script run nahi hoti, bas text dikhta hai.</p>
+          <div className="bg-white p-3 rounded border border-green-200 overflow-x-auto text-sm">
+            <strong className="block mb-1 text-gray-700">Output:</strong>
+            {maliciousUserInput}
+          </div>
         </div>
 
-        <div style={{ border: '2px solid red', padding: '10px', width: '50%' }}>
-          <h3>Dangerous Approach (dangerouslySetInnerHTML)</h3>
-          <p>Agar 'dangerouslySetInnerHTML' use karein, toh browser isko asli code mankar run kar deta hai. Yahi XSS attack hai!</p>
-          <div>
-            <strong>Output:</strong><br />
+        <div className="border-2 border-red-500 rounded-lg p-5 w-full md:w-1/2 bg-red-50">
+          <h3 className="text-xl font-bold text-red-700 mb-2">Dangerous Approach (dangerouslySetInnerHTML)</h3>
+          <p className="text-sm text-red-800 mb-4">Agar &apos;dangerouslySetInnerHTML&apos; use karein, toh browser isko asli code mankar run kar deta hai. Yahi XSS attack hai!</p>
+          <div className="bg-white p-3 rounded border border-red-200 overflow-x-auto text-sm">
+            <strong className="block mb-1 text-gray-700">Output:</strong>
             {/* ALERT: Ye code actual mein browser me attack simulate karega */}
             <div dangerouslySetInnerHTML={{ __html: maliciousUserInput }} />
           </div>
         </div>
       </div>
 
-      <hr />
+      <hr className="my-6 border-gray-200" />
 
       {/* TOPIC 6: CSRF Section */}
-      <h2>TOPIC 6: CSRF (Cross-Site Request Forgery)</h2>
-      <p>
+      <h2 className="text-2xl font-bold text-slate-800 mb-4">TOPIC 6: CSRF (Cross-Site Request Forgery)</h2>
+      <p className="mb-6 text-gray-700">
         <strong>Code kya kehta hai:</strong> Niche diye gaye Form mein <code>action=&#123;safeSubmitAction&#125;</code> pass kiya hai. Next.js isme automatic CSRF token lagakar form ko secure banata hai.
       </p>
 
-      <div style={{ border: '2px solid blue', padding: '10px', marginTop: '10px' }}>
-        <h3>Safe Form Example</h3>
-        <form action={safeSubmitAction} style={{ display: 'flex', flexDirection: 'column', gap: '10px', width: '300px' }}>
-          <label htmlFor="name">Enter Name:</label>
-          <input type="text" id="name" name="name" required style={{ padding: '5px' }} />
-          <button type="submit" style={{ padding: '8px', cursor: 'pointer' }}>Submit securely</button>
+      <div className="border-2 border-blue-500 rounded-lg p-5 mt-4 bg-blue-50 max-w-md">
+        <h3 className="text-xl font-bold text-blue-700 mb-4">Safe Form Example</h3>
+        <form action={safeSubmitAction} className="flex flex-col gap-4">
+          <div className="flex flex-col gap-1">
+            <label htmlFor="name" className="text-sm font-semibold text-gray-700">Enter Name:</label>
+            <input type="text" id="name" name="name" required className="border border-gray-300 rounded p-2 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+          </div>
+          <button type="submit" className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition-colors">
+            Submit securely
+          </button>
         </form>
       </div>
 

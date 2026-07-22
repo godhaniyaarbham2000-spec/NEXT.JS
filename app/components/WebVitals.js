@@ -22,6 +22,8 @@ export function WebVitals() {
       position: 'fixed',
       bottom: '10px',
       right: '10px',
+      width: '200px',
+      minHeight: '120px',
       background: 'rgba(0,0,0,0.8)',
       color: '#fff',
       padding: '10px',

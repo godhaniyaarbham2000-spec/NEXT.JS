@@ -80,7 +80,7 @@ export default function Home() {
     {
       category: "5. Content, Dynamic Routes & Media",
       links: [
-        { path: "/products", name: "Products", desc: "Static products catalog.", topic: "Day 01–02: App Router, Routing" },
+        { path: "/products?category=electronics&sort=price_low&page=3", name: "Products", desc: "Static products catalog.", topic: "Day 01–02: App Router, Routing" },
         { path: "/blog/22", name: "Blog Post (Dynamic ID)", desc: "Dynamic route [id].", topic: "Day 01–02: Dynamic Routing" },
         { path: "/blog/tech/2026/01", name: "Blog Catch-all", desc: "Catch-all route [...slug].", topic: "Day 01–02: Catch-all Routing" },
         { path: "/users/arbham", name: "User Profile (Dynamic)", desc: "Dynamic route [username].", topic: "Day 01–02: Dynamic Routing" },

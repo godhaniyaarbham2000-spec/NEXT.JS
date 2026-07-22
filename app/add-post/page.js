@@ -85,7 +85,7 @@ export default function AddPostPage() {
               required
               value={formData.title}
               onChange={handleChange}
-              className="w-full px-5 py-4 bg-white/60 border border-gray-200/80 rounded-2xl focus:outline-none focus:ring-4 focus:ring-sky-500/20 focus:border-sky-500 transition-all text-gray-900 placeholder-gray-400 font-medium text-lg shadow-sm"
+              className="w-full px-5 py-4 bg-white/60 border border-gray-200/80 rounded-2xl focus:outline-none focus:ring-4 focus:ring-sky-500/20 focus:border-sky-500 transition-all text-gray-900 placeholder-gray-400 font-medium text-base md:text-lg shadow-sm"
               placeholder="e.g. The Future of Web Development"
             />
           </div>

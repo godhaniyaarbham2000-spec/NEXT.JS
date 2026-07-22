@@ -1,13 +1,14 @@
 'use client';
+import Image from 'next/image';
 import { use } from 'react';
 import { useRouter } from 'next/navigation';
 
 export default function PhotoModal({ params }) {
   const router = useRouter();
   
-  // Safe params unwrap: Next.js 14 vs 15 compatibility
-  // Agar params Promise nahi hai to `use()` crash kar sakta hai.
-  const id = params && typeof params.then === 'function' ? use(params).id : params?.id;
+  // Next.js 15: params is a Promise. We must unwrap it with React.use() unconditionally at the top level.
+  const resolvedParams = use(params);
+  const id = resolvedParams.id;
 
   // 11. YEH KYU HAI: Intercepted Route '(.)'.
   // Yeh current folder ke route (localhost:3000/photos/1) ko intercept karega jab user link pe click karke aayega.
@@ -32,10 +33,12 @@ export default function PhotoModal({ params }) {
         </div>
         
         <div className="bg-gray-200 dark:bg-gray-800 rounded-xl aspect-video relative overflow-hidden flex items-center justify-center mb-4">
-          <img 
+          <Image 
             src={`https://picsum.photos/seed/${id}/1200/800`} 
             alt={`Photo ${id}`}
-            className="absolute inset-0 w-full h-full object-cover" 
+            fill
+            priority
+            className="object-cover" 
           />
           <span className="font-medium text-4xl text-white z-10 drop-shadow-md bg-black/50 px-4 py-2 rounded">Photo {id}</span>
         </div>

@@ -1,7 +1,10 @@
 export const dynamic = 'force-dynamic'; // Ensures this page renders dynamically to show the different fetch behaviors
 
 export default async function DataCachePage() {
-  const baseUrl = process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'http://localhost:3000';
+  // Vercel par self-referencing fetch error deta hai, isliye humne direct live URL hardcode kar diya hai.
+  const baseUrl = process.env.NODE_ENV === 'production' 
+    ? 'https://nextjs-app-seven-alpha.vercel.app' 
+    : 'http://localhost:3001';
 
   // 1. Force Cache (Never updates unless redeployed)
   const res1 = await fetch(`${baseUrl}/api/time`, { cache: 'force-cache' });
@@ -20,7 +23,7 @@ export default async function DataCachePage() {
       <h2>Topic 02: fetch() Cache Options</h2>
       <p>Is page ko baar-baar refresh (F5) karo aur dekho time kaise badalta hai.</p>
 
-      <div style={{ display: 'flex', gap: '20px', marginTop: '30px' }}>
+      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '20px', marginTop: '30px' }}>
         <Card title="1. force-cache (Static)" time={dataForceCache.timeFetched} desc="Time kabhi change nahi hoga. Hamesha cache se aayega." />
         <Card title="2. no-store (Dynamic)" time={dataNoStore.timeFetched} desc="Time har refresh par change hoga (Live data)." color="#e74c3c" />
         <Card title="3. ISR (revalidate: 10)" time={dataISR.timeFetched} desc="Har 10 second baad background mein refresh hoga." color="#f39c12" />

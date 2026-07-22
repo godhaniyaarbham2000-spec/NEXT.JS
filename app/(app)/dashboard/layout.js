@@ -5,7 +5,7 @@ export default function DashboardLayout({ children, analytics, team }) {
   return (
     <div className="flex flex-col gap-6">
       <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-sm border border-gray-100 dark:border-gray-700">
-        <h2 className="text-xl font-bold mb-4">Main Content (children)</h2>
+        <h2 className="text-xl font-bold mb-4 text-center md:text-left">Main Content (children)</h2>
         {/* Main page.js ka data */}
         {children}
       </div>

@@ -47,8 +47,12 @@ export function proxy(request) {
   // Agar user '/dashboard' par jane ki koshish kare, toh hum check karenge ki wo login hai ya nahi.
   if (url.pathname.startsWith('/dashboard')) {
     // Hum cookie check kar rahe hain ki session (login token) hai ya nahi
-    // Note: NextAuth generally 'authjs.session-token' ya 'next-auth.session-token' banata hai
-    const hasToken = request.cookies.get('authjs.session-token') || request.cookies.get('next-auth.session-token');
+    // Note: NextAuth generally 'authjs.session-token' ya 'next-auth.session-token' banata hai. Vercel (HTTPS) par ye '__Secure-authjs.session-token' ho jata hai.
+    const hasToken = 
+      request.cookies.get('authjs.session-token') || 
+      request.cookies.get('next-auth.session-token') ||
+      request.cookies.get('__Secure-authjs.session-token') ||
+      request.cookies.get('__Secure-next-auth.session-token');
 
     if (!hasToken) {
       // Agar token NAHI hai (user login nahi hai), toh use dhakka maar kar '/login' par bhej do!

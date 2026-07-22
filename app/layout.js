@@ -8,9 +8,6 @@ export const metadata = {
   description:
     "Free tutorials on React.js, Next.js, and web development by Thapa Technical.",
   keywords: ["React", "Next.js", "Web Development", "Thapa Technical"],
-  icons: {
-    icon: "/fav.jpg",
-  },
   metadataBase: new URL("https://yourdomain.com"),
   openGraph: {
     title: "WEB Technical",

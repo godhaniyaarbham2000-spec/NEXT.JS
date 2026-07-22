@@ -6,36 +6,36 @@ export default async function Navbar() {
   const session = await auth()
 
   return (
-    <nav style={{ padding: "20px", background: "#333", color: "#fff", display: "flex", gap: "20px" }}>
-      <Link href="/">Home</Link>
-      <Link href="/dashboard">Dashboard</Link>
+    <nav className="p-4 bg-gray-900 text-white flex flex-wrap items-center gap-4 shadow-md">
+      <Link href="/" className="font-medium hover:text-gray-300 transition-colors">Home</Link>
+      <Link href="/dashboard" className="font-medium hover:text-gray-300 transition-colors">Dashboard</Link>
       
       {/* Agar role 'admin' hai to Admin Panel dikhega */}
       {session?.user?.role === "admin" && (
-        <Link href="/admin">Admin Panel</Link>
+        <Link href="/admin" className="font-medium hover:text-gray-300 transition-colors">Admin Panel</Link>
       )}
 
       {/* Agar role 'user' hai to User Panel dikhega */}
       {session?.user?.role === "user" && (
-        <Link href="/user-panel">User Panel</Link>
+        <Link href="/user-panel" className="font-medium hover:text-gray-300 transition-colors">User Panel</Link>
       )}
 
-      <div style={{ marginLeft: "auto", display: "flex", gap: "10px" }}>
+      <div className="ml-auto flex flex-wrap items-center gap-3 mt-2 sm:mt-0">
         {session?.user ? (
           <>
-            <span>Welcome, {session.user.name}</span>
+            <span className="text-sm font-medium">Welcome, {session.user.name}</span>
             {/* Logout Button (NextAuth v5 requires POST/Form for logout) */}
             <form action={async () => {
               "use server"
               await signOut()
             }}>
-              <button type="submit" style={{ background: "red", color: "white", padding: "5px 10px", cursor: "pointer" }}>Logout</button>
+              <button type="submit" className="bg-red-600 hover:bg-red-700 text-white px-4 py-1.5 rounded-md text-sm font-medium transition-colors cursor-pointer">Logout</button>
             </form>
           </>
         ) : (
           // Login Button
           <Link href="/login">
-            <button style={{ background: "green", color: "white", padding: "5px 10px", cursor: "pointer" }}>Login</button>
+            <button className="bg-green-600 hover:bg-green-700 text-white px-4 py-1.5 rounded-md text-sm font-medium transition-colors cursor-pointer">Login</button>
           </Link>
         )}
       </div>

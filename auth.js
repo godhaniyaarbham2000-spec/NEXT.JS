@@ -80,16 +80,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
   pages: {
     signIn: "/login",
   },
-  cookies: {
-    sessionToken: {
-      name: `nextjs_app.session-token`,
-      options: {
-        httpOnly: true,
-        sameSite: 'lax',
-        path: '/',
-        secure: process.env.NODE_ENV === 'production'
-      }
-    }
-  },
+
   secret: String(process.env.AUTH_SECRET), //step5 encryp krke user ko broweser mai bhej deta hai
+  trustHost: true,
 })

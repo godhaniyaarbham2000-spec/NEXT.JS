@@ -40,36 +40,38 @@ export default async function BlogPost({ params }) {
   }
 
   return (
-    <div style={{ padding: '40px', maxWidth: '800px', margin: '0 auto', fontFamily: 'sans-serif' }}>
-      <div style={{ display: 'flex', gap: '20px', alignItems: 'flex-start' }}>
+    <div className="p-5 md:p-10 max-w-4xl mx-auto font-sans">
+      <div className="flex flex-col md:flex-row gap-6 md:gap-8 items-start">
         {product.thumbnail && (
-          <Image 
-            src={product.thumbnail} 
-            alt={product.title} 
-            width={300} 
-            height={300}
-            priority={true}
-            style={{ borderRadius: '12px', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }}
-          />
+          <div className="w-full md:w-auto flex justify-center">
+            <Image 
+              src={product.thumbnail} 
+              alt={product.title} 
+              width={300} 
+              height={300}
+              priority={true}
+              className="rounded-xl shadow-md object-cover w-full max-w-[300px] md:max-w-none"
+            />
+          </div>
         )}
         
-        <div>
-          <h1 style={{ color: '#2c3e50', fontSize: '32px', marginTop: 0 }}>{product.title}</h1>
-          <h2 style={{ color: '#e67e22', fontSize: '24px' }}>${product.price}</h2>
-          <p style={{ color: '#555', marginTop: '20px', lineHeight: '1.6', fontSize: '18px' }}>
+        <div className="flex-1 w-full">
+          <h1 className="text-2xl md:text-4xl font-bold text-slate-800 m-0">{product.title}</h1>
+          <h2 className="text-xl md:text-2xl text-orange-500 mt-2 font-semibold">${product.price}</h2>
+          <p className="text-gray-600 mt-4 leading-relaxed text-base md:text-lg">
             {product.description}
           </p>
-          <span style={{ display: 'inline-block', backgroundColor: '#3498db', color: '#fff', padding: '5px 10px', borderRadius: '5px', marginTop: '10px' }}>
+          <span className="inline-block bg-blue-500 text-white px-3 py-1.5 rounded-md mt-4 text-sm font-medium shadow-sm">
             Brand: {product.brand || 'Generic'}
           </span>
         </div>
       </div>
       
-      <div style={{ marginTop: '40px', padding: '20px', backgroundColor: '#e8f6f3', borderLeft: '5px solid #1abc9c', borderRadius: '0 8px 8px 0' }}>
-        <h3 style={{ margin: '0 0 10px 0', color: '#16a085' }}>✨ Dynamic Metadata Test</h3>
-        <p style={{ margin: 0, color: '#2c3e50' }}>
+      <div className="mt-10 p-5 bg-teal-50 border-l-4 border-teal-500 rounded-r-lg shadow-sm">
+        <h3 className="m-0 mb-2 text-teal-700 text-lg font-bold">✨ Dynamic Metadata Test</h3>
+        <p className="m-0 text-slate-800 text-sm md:text-base leading-relaxed">
           Browser ke tab par check karein! Agar aap <b>/blog/1</b> par hain toh tab ka title 
-          <b> "{product.title}" </b> aayega. Aur agar link kisi ko bhejenge toh ye image bhi sath jayegi (OpenGraph ke through)!
+          <b> &quot;{product.title}&quot; </b> aayega. Aur agar link kisi ko bhejenge toh ye image bhi sath jayegi (OpenGraph ke through)!
         </p>
       </div>
     </div>

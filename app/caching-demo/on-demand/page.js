@@ -9,7 +9,10 @@ async function refreshDataAction() {
 }
 
 export default async function OnDemandPage() {
-  const baseUrl = process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'http://localhost:3000';
+  // Vercel par self-referencing fetch error deta hai, isliye humne direct live URL hardcode kar diya hai.
+  const baseUrl = process.env.NODE_ENV === 'production' 
+    ? 'https://nextjs-app-seven-alpha.vercel.app' 
+    : 'http://localhost:3001';
 
   // Fetch with a specific tag
   const res = await fetch(`${baseUrl}/api/time`, { 
@@ -33,7 +36,7 @@ export default async function OnDemandPage() {
             Bust Cache & Fetch New Data!
           </button>
         </form>
-        <p style={{ fontSize: '12px', marginTop: '10px' }}>Button dabane par `revalidateTag('my-live-tag')` chalega.</p>
+        <p style={{ fontSize: '12px', marginTop: '10px' }}>Button dabane par &#96;revalidateTag(&apos;my-live-tag&apos;)&#96; chalega.</p>
       </div>
     </div>
   );
