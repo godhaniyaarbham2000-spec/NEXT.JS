@@ -232,6 +232,13 @@ nextjs_app/
 ```
 
 ---
+## 🌐 Live Demo
+
+Try the live application here:
+
+**🔗 Live URL:** https://nextjs-app-seven-alpha.vercel.app
+
+---
 
 ## ⚙️ Installation & Setup (Step-by-Step)
 
@@ -261,6 +268,15 @@ AUTH_SECRET="my_super_secret_auth_key_123"
 
 # Base URL for Auth.js
 NEXTAUTH_URL="http://localhost:3000"
+
+
+---
+
+### Option 2: MongoDB (Mongoose)
+
+```env
+# MongoDB Atlas Connection String
+MONGODB_URI="mongodb+srv://username:password@cluster.mongodb.net/nextjs_mastery"
 ```
 
 ### 4. Setup MySQL Database with Prisma
