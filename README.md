@@ -269,10 +269,9 @@ AUTH_SECRET="my_super_secret_auth_key_123"
 # Base URL for Auth.js
 NEXTAUTH_URL="http://localhost:3000"
 
-
 ---
 
-### Option 2: MongoDB (Mongoose)
+### MongoDB (Mongoose)
 
 ```env
 # MongoDB Atlas Connection String
